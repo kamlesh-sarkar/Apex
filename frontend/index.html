@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>GraphSentinel | AI Command Center</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                colors: {
+                  "on-secondary-container": "#b5db9f",
+                  "on-secondary-fixed-variant": "#446433",
+                  "secondary-dim": "#b9dfa2",
+                  "surface-dim": "#0e0e0e",
+                  "on-secondary-fixed": "#284719",
+                  "on-primary-fixed": "#2c4900",
+                  "primary-container": "#77bb04",
+                  "on-surface": "#ffffff",
+                  "inverse-primary": "#426a00",
+                  "error": "#ff7351",
+                  "secondary": "#c7eeaf",
+                  "surface-variant": "#262626",
+                  "primary-fixed": "#b1fa50",
+                  "outline-variant": "#484847",
+                  "on-primary-fixed-variant": "#406800",
+                  "on-error": "#450900",
+                  "on-tertiary-fixed-variant": "#006137",
+                  "error-dim": "#d53d18",
+                  "secondary-fixed-dim": "#b9dfa2",
+                  "on-surface-variant": "#adaaaa",
+                  "secondary-fixed": "#c7eeaf",
+                  "primary-dim": "#a4ec43",
+                  "on-tertiary-fixed": "#004123",
+                  "surface-bright": "#2c2c2c",
+                  "surface-container-highest": "#262626",
+                  "surface-container-high": "#201f1f",
+                  "secondary-container": "#2f4e20",
+                  "tertiary-fixed-dim": "#6edf9a",
+                  "surface-container-lowest": "#000000",
+                  "error-container": "#b92902",
+                  "inverse-surface": "#fcf8f8",
+                  "inverse-on-surface": "#565554",
+                  "on-tertiary-container": "#005730",
+                  "background": "#0e0e0e",
+                  "tertiary-dim": "#6edf9a",
+                  "on-tertiary": "#006036",
+                  "surface-container": "#1a1919",
+                  "tertiary-container": "#7ceea7",
+                  "on-primary-container": "#1b3000",
+                  "surface-container-low": "#131313",
+                  "on-error-container": "#ffd2c8",
+                  "on-background": "#ffffff",
+                  "outline": "#777575",
+                  "primary-fixed-dim": "#a4ec43",
+                  "on-secondary": "#3a5a2a",
+                  "on-primary": "#395d00",
+                  "tertiary-fixed": "#7ceea7",
+                  "surface": "#0e0e0e",
+                  "tertiary": "#8bfcb5",
+                  "surface-tint": "#b1fa50",
+                  "primary": "#b1fa50"
+                },
+                fontFamily: {
+                  "headline": ["Space Grotesk"],
+                  "body": ["Inter"],
+                  "label": ["Space Grotesk"]
+                },
+                borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+              },
+            },
+          }
+        </script>
+    <style>
+            body { font-family: 'Inter', sans-serif; background-color: #0e0e0e; color: #ffffff; }
+            .font-headline { font-family: 'Space Grotesk', sans-serif; }
+            .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+            .glass-panel {
+                background: rgba(26, 25, 25, 0.4);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .neon-glow-green { box-shadow: 0 0 15px rgba(118, 185, 0, 0.2); }
+            .neon-glow-red { box-shadow: 0 0 15px rgba(255, 115, 81, 0.2); }
+            .circuit-bg {
+                background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h1v1H0V0zm1 1h1v1H1V1zm1 1h1v1H2V2zm1 1h1v1H3V3zm1 1h1v1H4V4zm1 1h1v1H5V5zm1 1h1v1H6V6zm1 1h1v1H7V7zm1 1h1v1H8V8zm1 1h1v1H9V9zm1 1h1v1H10V10zm1 1h1v1H11V11zm1 1h1v1H12V12zm1 1h1v1H13V13zm1 1h1v1H14V14zm1 1h1v1H15V15zm1 1h1v1H16V16zm1 1h1v1H17V17zm1 1h1v1H18V18zm1 1h1v1H19V19zm1 1h1v1H20V20zm1 1h1v1H21V21zm1 1h1v1H22V22zm1 1h1v1H23V23zm1 1h1v1H24V24zm1 1h1v1H25V25zm1 1h1v1H26V26zm1 1h1v1H27V27zm1 1h1v1H28V28zm1 1h1v1H29V29zm1 1h1v1H30V30zm1 1h1v1H31V31zm1 1h1v1H32V32zm1 1h1v1H33V33zm1 1h1v1H34V34zm1 1h1v1H35V35zm1 1h1v1H36V36zm1 1h1v1H37V37zm1 1h1v1H38V38zm1 1h1v1H39V39z' fill='%2376b900' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            }
+            .loading-pulse {
+                animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+            @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: .5; }
+            }
+    </style>
+</head>
+<body class="bg-surface select-none overflow-hidden">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#0e0e0e]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(118,185,0,0.1)]">
+        <div class="flex items-center gap-8">
+            <span class="text-xl font-bold tracking-tighter text-[#76B900] uppercase font-headline">GraphSentinel</span>
+            <div class="hidden md:flex gap-6 items-center">
+                <a class="text-[#76B900] border-b-2 border-[#76B900] pb-1 font-headline uppercase text-xs tracking-widest" href="#">Dashboard</a>
+                <a class="text-gray-400 hover:text-white transition-colors font-headline uppercase text-xs tracking-widest" href="#">Transactions</a>
+                <a class="text-gray-400 hover:text-white transition-colors font-headline uppercase text-xs tracking-widest" href="#">Detection</a>
+                <a class="text-gray-400 hover:text-white transition-colors font-headline uppercase text-xs tracking-widest" href="#">Traceback</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <div class="w-2 h-2 rounded-full bg-[#76B900] animate-pulse"></div>
+                <span class="text-[10px] font-headline uppercase tracking-widest text-[#76B900]">System Live</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SideNavBar (Left) -->
+    <aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-[#131313] border-r border-white/5 flex flex-col justify-between py-8 z-40 hidden md:flex">
+        <div class="flex flex-col gap-2">
+            <a class="group flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-[#76B900]/20 to-transparent text-[#76B900] border-l-4 border-[#76B900] transition-all duration-200" href="#">
+                <span class="material-symbols-outlined text-sm">dashboard</span>
+                <span class="font-headline text-[11px] tracking-widest uppercase">Overview</span>
+            </a>
+            <a class="group flex items-center gap-4 px-6 py-3 text-gray-500 hover:text-[#76B900]/80 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+                <span class="material-symbols-outlined text-sm">hub</span>
+                <span class="font-headline text-[11px] tracking-widest uppercase">Graph View</span>
+            </a>
+            <a class="group flex items-center gap-4 px-6 py-3 text-gray-500 hover:text-[#76B900]/80 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+                <span class="material-symbols-outlined text-sm">security</span>
+                <span class="font-headline text-[11px] tracking-widest uppercase">Risk Analysis</span>
+            </a>
+            <a class="group flex items-center gap-4 px-6 py-3 text-gray-500 hover:text-[#76B900]/80 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+                <span class="material-symbols-outlined text-sm">warning</span>
+                <span class="font-headline text-[11px] tracking-widest uppercase">Alerts</span>
+            </a>
+        </div>
+        <div class="flex flex-col gap-2 border-t border-white/5 pt-6">
+            <div class="px-6 py-2">
+                <p class="text-[9px] text-gray-500 font-headline tracking-widest uppercase mb-1">Risk Tolerance</p>
+                <div class="h-1 bg-white/5 rounded-full overflow-hidden">
+                    <div class="w-1/3 h-full bg-[#76B900]"></div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Canvas -->
+    <main class="ml-0 md:ml-64 mt-16 p-6 h-[calc(100vh-64px)] grid grid-cols-12 grid-rows-6 gap-6 relative z-10 circuit-bg">
+        <!-- Top Stats Row -->
+        <div class="col-span-12 row-span-1 grid grid-cols-4 gap-4">
+            <div class="glass-panel rounded-lg p-4 flex flex-col justify-between border-l-2 border-[#76B900] neon-glow-green">
+                <span class="text-[10px] font-headline uppercase tracking-widest text-gray-400">Total Transactions</span>
+                <div class="flex items-baseline justify-between mt-1">
+                    <span id="stat-total-tx" class="text-2xl font-bold font-headline">0</span>
+                    <span class="text-[10px] text-[#76B900]">+LIVE</span>
+                </div>
+            </div>
+            <div class="glass-panel rounded-lg p-4 flex flex-col justify-between border-l-2 border-error neon-glow-red">
+                <span class="text-[10px] font-headline uppercase tracking-widest text-gray-400">Fraud Detected</span>
+                <div class="flex items-baseline justify-between mt-1">
+                    <span id="stat-fraud-detected" class="text-2xl font-bold font-headline text-error">0</span>
+                    <span class="text-[10px] text-error">Detection Off</span>
+                </div>
+            </div>
+            <div class="glass-panel rounded-lg p-4 flex flex-col justify-between border-l-2 border-primary-container">
+                <span class="text-[10px] font-headline uppercase tracking-widest text-gray-400">Active Alerts</span>
+                <div class="flex items-baseline justify-between mt-1">
+                    <span id="stat-alerts" class="text-2xl font-bold font-headline text-white">0</span>
+                    <span class="text-[10px] text-gray-500">Real-time</span>
+                </div>
+            </div>
+            <div class="glass-panel rounded-lg p-4 flex flex-col justify-between border-l-2 border-[#76B900]">
+                <span class="text-[10px] font-headline uppercase tracking-widest text-gray-400">Risk Score Avg</span>
+                <div class="flex items-baseline justify-between mt-1">
+                    <span id="stat-risk-avg" class="text-2xl font-bold font-headline text-[#76B900]">--</span>
+                    <span class="text-[10px] text-[#76B900]">Secure</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Central Network Graph Panel -->
+        <div class="col-span-12 md:col-span-9 row-span-4 glass-panel rounded-xl relative overflow-hidden p-0">
+            <div id="graph-container" class="w-full h-full">
+                <div id="graph-placeholder" class="flex flex-col items-center justify-center h-full text-gray-600">
+                    <span class="material-symbols-outlined text-6xl mb-4">analytics</span>
+                    <p class="font-headline uppercase tracking-[0.3em] text-xs">Awaiting Simulation</p>
+                </div>
+                <iframe id="graph-frame" class="w-full h-full border-0 hidden"></iframe>
+            </div>
+            <!-- Control Buttons Floating -->
+            <div class="absolute bottom-6 left-6 right-6 flex gap-4 justify-center">
+                <button id="btn-simulate" class="px-6 py-3 bg-[#76B900] text-black font-headline text-xs font-bold uppercase tracking-widest rounded-sm hover:translate-y-[-2px] transition-all flex items-center gap-2 shadow-lg shadow-[#76B900]/20">
+                    <span class="material-symbols-outlined text-sm">play_arrow</span>
+                    Simulate Transactions
+                </button>
+                <button id="btn-detect" class="px-6 py-3 border border-error text-error font-headline text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-error/10 hover:translate-y-[-2px] transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">search</span>
+                    Detect Fraud
+                </button>
+                <button id="btn-trace" class="px-6 py-3 border border-tertiary text-tertiary font-headline text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-tertiary/10 hover:translate-y-[-2px] transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">route</span>
+                    Trace Origin
+                </button>
+            </div>
+        </div>
+
+        <!-- Sidebar (Right): Threat Monitor -->
+        <aside class="hidden md:flex col-span-3 row-span-4 flex-col gap-4">
+            <div class="glass-panel rounded-xl flex-1 flex flex-col p-4 overflow-hidden border border-white/5">
+                <div class="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
+                    <h3 class="font-headline text-xs font-bold uppercase tracking-widest">Threat Monitor</h3>
+                    <span class="material-symbols-outlined text-sm text-[#76B900]">analytics</span>
+                </div>
+                <div id="threat-monitor-list" class="flex-1 overflow-y-auto pr-2 space-y-4">
+                    <div class="p-8 text-center text-gray-600 italic text-[10px] uppercase tracking-widest font-headline">
+                        No active threats
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Traceback Path (Bottom) -->
+        <div class="col-span-12 row-span-1 glass-panel rounded-lg flex items-center px-6 gap-8 overflow-hidden border border-white/5">
+            <div class="flex flex-col">
+                <span class="text-[10px] font-headline uppercase tracking-widest text-[#76B900]">Traceback Path</span>
+                <span id="trace-status" class="text-[9px] text-gray-500">Forensic Map v2.6 Ready</span>
+            </div>
+            <div id="traceback-path-container" class="flex-1 flex items-center gap-4 overflow-x-auto py-2">
+                <div class="text-[10px] text-gray-600 italic">Select a kingpin to view traceback...</div>
+            </div>
+            <button id="btn-export" class="text-xs font-headline uppercase text-[#76B900] border border-[#76B900]/30 px-3 py-1 rounded-sm hover:bg-[#76B900]/10 transition-all">
+                Export Log
+            </button>
+        </div>
+    </main>
+
+    <script>
+        const API_BASE = '/api';
+        let currentTransactions = [];
+        let analysisResult = null;
+
+        const statTotalTx = document.getElementById('stat-total-tx');
+        const statFraudDetected = document.getElementById('stat-fraud-detected');
+        const statAlerts = document.getElementById('stat-alerts');
+        const statRiskAvg = document.getElementById('stat-risk-avg');
+        const threatMonitorList = document.getElementById('threat-monitor-list');
+        const tracebackPathContainer = document.getElementById('traceback-path-container');
+        const graphFrame = document.getElementById('graph-frame');
+        const graphPlaceholder = document.getElementById('graph-placeholder');
+
+        // Buttons
+        const btnSimulate = document.getElementById('btn-simulate');
+        const btnDetect = document.getElementById('btn-detect');
+        const btnTrace = document.getElementById('btn-trace');
+
+        // Simulation
+        btnSimulate.addEventListener('click', async () => {
+            btnSimulate.classList.add('loading-pulse');
+            try {
+                const res = await fetch(`${API_BASE}/simulate?n=40`);
+                const data = await res.json();
+                currentTransactions = data.transactions;
+                statTotalTx.innerText = currentTransactions.length;
+                statAlerts.innerText = '0';
+                statFraudDetected.innerText = '0';
+                statRiskAvg.innerText = '--';
+                
+                // Show placeholders for graph
+                graphPlaceholder.classList.add('hidden');
+                graphFrame.classList.remove('hidden');
+                graphFrame.src = `${API_BASE}/graph_html?state=simulated`;
+
+                threatMonitorList.innerHTML = `
+                    <div class="p-3 bg-[#76B900]/5 border-l-2 border-[#76B900] rounded-sm flex flex-col gap-1">
+                        <span class="text-[10px] font-bold text-[#76B900] uppercase">Info</span>
+                        <p class="text-[11px] text-white">${currentTransactions.length} transactions ingested.</p>
+                        <span class="text-[9px] text-gray-500">${new Date().toLocaleTimeString()}</span>
+                    </div>`;
+            } catch (err) {
+                console.error(err);
+            } finally {
+                btnSimulate.classList.remove('loading-pulse');
+            }
+        });
+
+        // Detection
+        btnDetect.addEventListener('click', async () => {
+            if (currentTransactions.length === 0) return alert('Simulate transactions first.');
+            
+            btnDetect.classList.add('loading-pulse');
+            try {
+                const res = await fetch(`${API_BASE}/analyze`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(currentTransactions)
+                });
+                analysisResult = await res.json();
+                
+                statFraudDetected.innerText = analysisResult.fraud_nodes.length;
+                statAlerts.innerText = analysisResult.fraud_nodes.length + 1; // Arbitrary alert count
+                
+                const riskAvg = Math.round((analysisResult.fraud_nodes.length / 20) * 100);
+                statRiskAvg.innerText = riskAvg + '%';
+                
+                // Refresh graph with fraud state
+                graphFrame.src = `${API_BASE}/graph_html?state=fraud`;
+
+                // Update Threat Monitor
+                threatMonitorList.innerHTML = analysisResult.fraud_nodes.map(node => `
+                    <div class="p-3 bg-error/5 border-l-2 border-error rounded-sm flex flex-col gap-1 animate-pulse">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-bold text-error uppercase">SUSPICIOUS</span>
+                            <span class="text-[9px] text-gray-500">NOW</span>
+                        </div>
+                        <p class="text-[11px] font-medium text-white">Abnormal activity on node ${node}</p>
+                        <p class="text-[9px] text-gray-400 font-mono tracking-tight">ID: ${node.slice(0,8)}</p>
+                    </div>
+                `).join('') + (analysisResult.kingpin ? `
+                    <div class="p-3 bg-primary-container/10 border-l-2 border-primary-container rounded-sm flex flex-col gap-1">
+                         <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-bold text-primary-container uppercase">KINGPIN</span>
+                            <span class="text-[9px] text-gray-500">IDENTIFIED</span>
+                        </div>
+                        <p class="text-[11px] font-medium text-white">Central hub: ${analysisResult.kingpin}</p>
+                    </div>
+                ` : '');
+            } catch (err) {
+                console.error(err);
+            } finally {
+                btnDetect.classList.remove('loading-pulse');
+            }
+        });
+
+        // Trace
+        btnTrace.addEventListener('click', () => {
+            if (!analysisResult || !analysisResult.kingpin) return alert('Run Detect Fraud first.');
+            
+            // Refresh graph with trace state
+            graphFrame.src = `${API_BASE}/graph_html?state=traced`;
+
+            // Update Traceback Path UI
+            const paths = analysisResult.trace_paths;
+            const kingpin = analysisResult.kingpin;
+            
+            // Just show the longest path for demo in the footer
+            let longestPath = [];
+            for (let startNode in paths) {
+                if (paths[startNode].length > longestPath.length) {
+                    longestPath = paths[startNode];
+                }
+            }
+
+            if (longestPath.length > 0) {
+                tracebackPathContainer.innerHTML = longestPath.map((node, i) => `
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full ${node === kingpin ? 'bg-primary-container' : 'bg-[#76B900]'}"></div>
+                        <span class="text-[10px] font-mono ${node === kingpin ? 'text-primary-container font-bold' : 'text-gray-300'}">${node}</span>
+                    </div>
+                    ${i < longestPath.length - 1 ? `
+                        <div class="w-8 h-[1px] bg-gray-700 relative">
+                             <div class="absolute -top-1 left-1/2 w-2 h-2 border-t border-r border-gray-600 rotate-45"></div>
+                        </div>
+                    ` : ''}
+                `).join('');
+            }
+        });
+
+    </script>
+</body>
+</html>

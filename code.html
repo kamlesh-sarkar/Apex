@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GraphSentinel | AI Command Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#b5db9f",
+              "on-secondary-fixed-variant": "#446433",
+              "secondary-dim": "#b9dfa2",
+              "surface-dim": "#0e0e0e",
+              "on-secondary-fixed": "#284719",
+              "on-primary-fixed": "#2c4900",
+              "primary-container": "#77bb04",
+              "on-surface": "#ffffff",
+              "inverse-primary": "#426a00",
+              "error": "#ff7351",
+              "secondary": "#c7eeaf",
+              "surface-variant": "#262626",
+              "primary-fixed": "#b1fa50",
+              "outline-variant": "#484847",
+              "on-primary-fixed-variant": "#406800",
+              "on-error": "#450900",
+              "on-tertiary-fixed-variant": "#006137",
+              "error-dim": "#d53d18",
+              "secondary-fixed-dim": "#b9dfa2",
+              "on-surface-variant": "#adaaaa",
+              "secondary-fixed": "#c7eeaf",
+              "primary-dim": "#a4ec43",
+              "on-tertiary-fixed": "#004123",
+              "surface-bright": "#2c2c2c",
+              "surface-container-highest": "#262626",
+              "surface-container-high": "#201f1f",
+              "secondary-container": "#2f4e20",
+              "tertiary-fixed-dim": "#6edf9a",
+              "surface-container-lowest": "#000000",
+              "error-container": "#b92902",
+              "inverse-surface": "#fcf8f8",
+              "inverse-on-surface": "#565554",
+              "on-tertiary-container": "#005730",
+              "background": "#0e0e0e",
+              "tertiary-dim": "#6edf9a",
+              "on-tertiary": "#006036",
+              "surface-container": "#1a1919",
+              "tertiary-container": "#7ceea7",
+              "on-primary-container": "#1b3000",
+              "surface-container-low": "#131313",
+              "on-error-container": "#ffd2c8",
+              "on-background": "#ffffff",
+              "outline": "#777575",
+              "primary-fixed-dim": "#a4ec43",
+              "on-secondary": "#3a5a2a",
+              "on-primary": "#395d00",
+              "tertiary-fixed": "#7ceea7",
+              "surface": "#0e0e0e",
+              "tertiary": "#8bfcb5",
+              "surface-tint": "#b1fa50",
+              "primary": "#b1fa50"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0e0e0e; color: #ffffff; }
+        .font-headline { font-family: 'Space Grotesk', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel {
+            background: rgba(26, 25, 25, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow-green { box-shadow: 0 0 15px rgba(118, 185, 0, 0.2); }
+        .neon-glow-red { box-shadow: 0 0 15px rgba(255, 115, 81, 0.2); }
+        .circuit-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h1v1H0V0zm1 1h1v1H1V1zm1 1h1v1H2V2zm1 1h1v1H3V3zm1 1h1v1H4V4zm1 1h1v1H5V5zm1 1h1v1H6V6zm1 1h1v1H7V7zm1 1h1v1H8V8zm1 1h1v1H9V9zm1 1h1v1H10V10zm1 1h1v1H11V11zm1 1h1v1H12V12zm1 1h1v1H13V13zm1 1h1v1H14V14zm1 1h1v1H15V15zm1 1h1v1H16V16zm1 1h1v1H17V17zm1 1h1v1H18V18zm1 1h1v1H19V19zm1 1h1v1H20V20zm1 1h1v1H21V21zm1 1h1v1H22V22zm1 1h1v1H23V23zm1 1h1v1H24V24zm1 1h1v1H25V25zm1 1h1v1H26V26zm1 1h1v1H27V27zm1 1h1v1H28V28zm1 1h1v1H29V29zm1 1h1v1H30V30zm1 1h1v1H31V31zm1 1h1v1H32V32zm1 1h1v1H33V33zm1 1h1v1H34V34zm1 1h1v1H35V35zm1 1h1v1H36V36zm1 1h1v1H37V37zm1 1h1v1H38V38zm1 1h1v1H39V39z' fill='%2376b900' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-surface select-none overflow-hidden">
+<!-- Fixed Background Overlay -->
+<div class="fixed inset-0 z-0 opacity-5 pointer-events-none">
+<img alt="Background Security Motif" class="w-full h-full object-cover grayscale" data-alt="Hyper-realistic close-up of a digital metallic lock and key with green data streams in a dark technical environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0oO-epx6pgAZDuqZ61ER2DjSglvAq0UmGpTx32mFQ1rt-3tIq3rxlEhZJeNTm0Rf6XqpwbHrmFMxSfZfiJ1LVPF1iHVH3BK1GuWxtqZHZJeJcxJX4QfeM-w-wlsa2-AvqjLqtUbwJvddWd_fwL4IURVL8YJtFm4ATe54xCByRsBrYuC-9w0Bue9F4_2yeya8B6DoBw9rYexELzB0pxUhXNWTnmks-MXescRHeR27Ii0MmGIvnIjBdQY3G8sAeqyiv3Fr-edYdd9G4"/>
+</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#0e0e0e]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_0_15px_rgba(118,185,0,0.1)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#76B900] uppercase font-headline">GraphSentinel</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-[#76B900] border-b-2 border-[#76B900] pb-1 font-headline uppercase text-xs tracking-widest" href="#">Dashboard</a>
+<a class="text-gray-400 hover:text-white transition-colors font-headline uppercase text-xs tracking-widest" href="#">Transactions</a>
+<a class="text-gray-400 hover:text-white transition-colors font-headline uppercase text-xs tracking-widest" href="#">Detection</a>
+<a class="text-gray-400 hover:text-white transition-colors font-headline uppercase text-xs tracking-widest" href="#">Traceback</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 transition-all text-gray-400">
+<span class="material-symbols-outlined">sensors</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-[#76B900]/30">
+<img alt="User Profile Avatar" data-alt="User profile avatar of a tech executive in a dark suit with a clean studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBimx1CEISh_6WB8fF0G_qE83D1pkh4x9b6JMOHqVnQLF8G9cRIgIOA2QQwtVEr9oMO9m33u1VVp8tKP0zcfpEPUxMyJQyrye7T40MijBwfsnsMPZbeY02R7r71jfj4RFCaYJDehS1G6tLkPov2B6qxhF0UTnbMfg5C3vT7Q3PEJTsBLL2cO0HUVMIGXZyPvhysQLadsR2APB7PHW2uQONmcogAGC8THz0XoytDlhz26rMnxwluiNyTBsQCJ4Pos3W9Y3otRaLoX6Qu"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Left) -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-[#131313] border-r border-white/5 flex flex-col justify-between py-8 z-40 hidden md:flex">
+<div class="flex flex-col gap-2">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-[#76B900] animate-pulse"></div>
+<div>
+<p class="text-[10px] font-headline uppercase tracking-[0.2em] text-[#76B900]">System Active</p>
+<p class="text-[9px] text-gray-500 font-headline tracking-widest uppercase">Graph Intelligence</p>
+</div>
+</div>
+<a class="group flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-[#76B900]/20 to-transparent text-[#76B900] border-l-4 border-[#76B900] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">dashboard</span>
+<span class="font-headline text-[11px] tracking-widest uppercase">Overview</span>
+</a>
+<a class="group flex items-center gap-4 px-6 py-3 text-gray-500 hover:text-[#76B900]/80 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-sm">hub</span>
+<span class="font-headline text-[11px] tracking-widest uppercase">Graph View</span>
+</a>
+<a class="group flex items-center gap-4 px-6 py-3 text-gray-500 hover:text-[#76B900]/80 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-sm">security</span>
+<span class="font-headline text-[11px] tracking-widest uppercase">Risk Analysis</span>
+</a>
+<a class="group flex items-center gap-4 px-6 py-3 text-gray-500 hover:text-[#76B900]/80 hover:bg-white/5 transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-sm">warning</span>
+<span class="font-headline text-[11px] tracking-widest uppercase">Alerts</span>
+</a>
+</div>
+<div class="flex flex-col gap-2 border-t border-white/5 pt-6">
+<a class="group flex items-center gap-4 px-6 py-3 text-gray-500 hover:text-white transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+<span class="font-headline text-[11px] tracking-widest uppercase">Support</span>
+</a>
+<a class="group flex items-center gap-4 px-6 py-3 text-gray-500 hover:text-error transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span class="font-headline text-[11px] tracking-widest uppercase">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-0 md:ml-64 mt-16 p-6 h-[calc(100vh-64px)] grid grid-cols-12 grid-rows-6 gap-6 relative z-10 circuit-bg">
+<!-- Top Stats Row -->
+<div class="col-span-12 row-span-1 grid grid-cols-4 gap-4">
+<!-- Stat Card 1 -->
+<div class="glass-panel rounded-lg p-4 flex flex-col justify-between border-l-2 border-[#76B900] neon-glow-green">
+<span class="text-[10px] font-headline uppercase tracking-widest text-gray-400">Total Transactions</span>
+<div class="flex items-baseline justify-between mt-1">
+<span class="text-2xl font-bold font-headline">1,429,203</span>
+<span class="text-[10px] text-[#76B900]">+12.4%</span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="glass-panel rounded-lg p-4 flex flex-col justify-between border-l-2 border-error neon-glow-red">
+<span class="text-[10px] font-headline uppercase tracking-widest text-gray-400">Fraud Detected</span>
+<div class="flex items-baseline justify-between mt-1">
+<span class="text-2xl font-bold font-headline text-error">42</span>
+<span class="text-[10px] text-error">Active Pursuit</span>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="glass-panel rounded-lg p-4 flex flex-col justify-between border-l-2 border-[#76B900]/50">
+<span class="text-[10px] font-headline uppercase tracking-widest text-gray-400">Active Alerts</span>
+<div class="flex items-baseline justify-between mt-1">
+<span class="text-2xl font-bold font-headline text-white">18</span>
+<span class="text-[10px] text-gray-500">Real-time</span>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="glass-panel rounded-lg p-4 flex flex-col justify-between border-l-2 border-[#76B900]">
+<span class="text-[10px] font-headline uppercase tracking-widest text-gray-400">Risk Score Avg</span>
+<div class="flex items-baseline justify-between mt-1">
+<span class="text-2xl font-bold font-headline text-[#76B900]">12.8</span>
+<span class="text-[10px] text-[#76B900]">Secure</span>
+</div>
+</div>
+</div>
+<!-- Central Network Graph Panel -->
+<div class="col-span-12 md:col-span-9 row-span-4 glass-panel rounded-xl relative overflow-hidden flex items-center justify-center p-8">
+<!-- Simplified Representational Network Graph -->
+<svg class="w-full h-full opacity-80" viewbox="0 0 800 400">
+<!-- Lines -->
+<line stroke="#76B900" stroke-dasharray="4" stroke-width="0.5" x1="100" x2="250" y1="200" y2="100"></line>
+<line stroke="#76B900" stroke-dasharray="4" stroke-width="0.5" x1="100" x2="250" y1="200" y2="300"></line>
+<line stroke="#76B900" stroke-width="1" x1="250" x2="400" y1="100" y2="200"></line>
+<line stroke="#76B900" stroke-width="1" x1="250" x2="400" y1="300" y2="200"></line>
+<line stroke="#ff7351" stroke-width="1.5" x1="400" x2="550" y1="200" y2="100"></line>
+<line stroke="#76B900" stroke-width="0.5" x1="400" x2="550" y1="200" y2="300"></line>
+<line stroke="#ff7351" stroke-width="2" x1="550" x2="700" y1="100" y2="200"></line>
+<!-- Normal Nodes -->
+<circle cx="100" cy="200" fill="#1a1919" r="6" stroke="#76B900" stroke-width="1"></circle>
+<circle cx="250" cy="100" fill="#1a1919" r="6" stroke="#76B900" stroke-width="1"></circle>
+<circle cx="250" cy="300" fill="#1a1919" r="6" stroke="#76B900" stroke-width="1"></circle>
+<circle cx="550" cy="300" fill="#1a1919" r="6" stroke="#76B900" stroke-width="1"></circle>
+<!-- Fraud Node -->
+<circle class="animate-pulse" cx="550" cy="100" fill="#ff7351" r="10">
+<title>Fraudulent Transaction Node</title>
+</circle>
+<circle cx="550" cy="100" fill="none" opacity="0.5" r="14" stroke="#ff7351" stroke-width="0.5"></circle>
+<!-- Kingpin Node -->
+<circle class="neon-glow-green" cx="400" cy="200" fill="#76B900" r="12">
+<title>Origin / Kingpin</title>
+</circle>
+<circle cx="400" cy="200" fill="none" opacity="0.3" r="18" stroke="#76B900" stroke-width="1"></circle>
+<!-- Target Node -->
+<circle cx="700" cy="200" fill="#0e0e0e" r="15" stroke="#ff7351" stroke-width="3"></circle>
+<text class="text-[10px] font-headline uppercase font-bold" fill="#ff7351" x="730" y="205">Target Account</text>
+<text class="text-[10px] font-headline uppercase font-bold" fill="#76B900" x="360" y="175">Origin Node</text>
+</svg>
+<!-- Control Buttons Floating -->
+<div class="absolute bottom-6 left-6 right-6 flex gap-4 justify-center">
+<button class="px-6 py-3 bg-[#76B900] text-black font-headline text-xs font-bold uppercase tracking-widest rounded-sm hover:scale-95 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+                    Simulate Transactions
+                </button>
+<button class="px-6 py-3 border border-[#76B900] text-[#76B900] font-headline text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-[#76B900]/10 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">search</span>
+                    Detect Fraud
+                </button>
+<button class="px-6 py-3 border border-[#76B900] text-[#76B900] font-headline text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-[#76B900]/10 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">route</span>
+                    Trace Origin
+                </button>
+</div>
+<!-- Graph UI Info -->
+<div class="absolute top-6 left-6">
+<h2 class="text-xl font-headline font-bold uppercase tracking-tighter">Live Network Graph</h2>
+<p class="text-[10px] text-gray-500 uppercase tracking-widest">Processing 12.4k nodes/sec</p>
+</div>
+</div>
+<!-- Sidebar (Right): Threat Monitor -->
+<div class="hidden md:flex col-span-3 row-span-4 flex-col gap-4">
+<div class="glass-panel rounded-xl flex-1 flex flex-col p-4 overflow-hidden">
+<div class="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
+<h3 class="font-headline text-xs font-bold uppercase tracking-widest">Threat Monitor</h3>
+<span class="material-symbols-outlined text-sm text-[#76B900]">analytics</span>
+</div>
+<div class="flex-1 overflow-y-auto pr-2 space-y-4">
+<!-- Alert Item 1 -->
+<div class="p-3 bg-white/5 border-l-2 border-error-container rounded-sm flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-error uppercase">Critical</span>
+<span class="text-[9px] text-gray-500">2m ago</span>
+</div>
+<p class="text-[11px] font-medium text-white">Large wire transfer to unlisted wallet.</p>
+<p class="text-[9px] text-gray-400 font-mono tracking-tight">ID: TX-94021-B</p>
+</div>
+<!-- Alert Item 2 -->
+<div class="p-3 bg-white/5 border-l-2 border-primary rounded-sm flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-primary uppercase">Suspicious</span>
+<span class="text-[9px] text-gray-500">14m ago</span>
+</div>
+<p class="text-[11px] font-medium text-white">Rapid multi-node small transactions.</p>
+<p class="text-[9px] text-gray-400 font-mono tracking-tight">ID: TX-11029-C</p>
+</div>
+<!-- Alert Item 3 -->
+<div class="p-3 bg-white/5 border-l-2 border-tertiary rounded-sm flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-tertiary uppercase">Low Risk</span>
+<span class="text-[9px] text-gray-500">1h ago</span>
+</div>
+<p class="text-[11px] font-medium text-white">Unusual login location detected.</p>
+<p class="text-[9px] text-gray-400 font-mono tracking-tight">ID: US-0021-Z</p>
+</div>
+<!-- Alert Item 4 -->
+<div class="p-3 bg-white/5 border-l-2 border-error rounded-sm flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-error uppercase">Imminent Threat</span>
+<span class="text-[9px] text-gray-500">Just now</span>
+</div>
+<p class="text-[11px] font-medium text-white">Possible brute force on origin node.</p>
+<p class="text-[9px] text-gray-400 font-mono tracking-tight">ID: SYS-404-X</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Traceback Path (Bottom) -->
+<div class="col-span-12 row-span-1 glass-panel rounded-lg flex items-center px-6 gap-8 overflow-hidden">
+<div class="flex flex-col">
+<span class="text-[10px] font-headline uppercase tracking-widest text-[#76B900]">Traceback Path</span>
+<span class="text-[9px] text-gray-500">Forensic Map v2.4</span>
+</div>
+<div class="flex-1 flex items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#76B900]"></div>
+<span class="text-[10px] font-mono text-gray-300">USER_88</span>
+</div>
+<div class="flex-1 h-[1px] bg-gradient-to-r from-[#76B900] to-transparent relative">
+<div class="absolute -top-1 left-1/2 w-2 h-2 border-t border-r border-[#76B900] rotate-45"></div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#76B900]"></div>
+<span class="text-[10px] font-mono text-gray-300">TX_HUB_ALPHA</span>
+</div>
+<div class="flex-1 h-[1px] bg-gradient-to-r from-gray-700 via-error to-gray-700 relative">
+<div class="absolute -top-1 left-1/2 w-2 h-2 border-t border-r border-error rotate-45"></div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="text-[10px] font-mono text-error">UNKNOWN_ENTITY</span>
+</div>
+<div class="flex-1 h-[1px] bg-gradient-to-r from-transparent to-error opacity-50 relative">
+<div class="absolute -top-1 left-1/2 w-2 h-2 border-t border-r border-error rotate-45"></div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 border border-error animate-ping rounded-full absolute"></div>
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="text-[10px] font-mono text-error">DARK_POOL</span>
+</div>
+</div>
+<button class="text-xs font-headline uppercase text-[#76B900] border border-[#76B900]/30 px-3 py-1 rounded-sm hover:bg-[#76B900]/10 transition-all">
+                Export Log
+            </button>
+</div>
+</main>
+<!-- Contextual FAB (Only for specific primary tasks) -->
+<!-- Suppressed on Dashboard as per hierarchy logic, but can be added if specific task focus needed -->
+</body></html>

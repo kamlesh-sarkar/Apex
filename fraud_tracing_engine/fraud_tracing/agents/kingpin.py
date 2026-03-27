@@ -19,16 +19,13 @@ class KingpinDetectionAgent:
         if not candidates:
             return None
 
-        # Calculate out-degree centrality (normalized out-degree)
+        # Primary signal: out-degree centrality — O(V+E), measures who sends to the most nodes
         out_degree_centrality = nx.out_degree_centrality(suspicious_subgraph)
         
-        # We can also calculate betweenness just to have it
-        betweenness = nx.betweenness_centrality(suspicious_subgraph)
+        # Tiebreaker: in-degree centrality — also O(V+E), avoids the expensive betweenness O(VE) call
+        in_degree_centrality = nx.in_degree_centrality(suspicious_subgraph)
         
-        # A true orchestrator might have no incoming edges in this context (in-degree 0) 
-        # but a high out-degree.
-        
-        # Score = Out-Degree Centrality. If tie, Betweenness Centrality.
-        kingpin = max(candidates, key=lambda n: (out_degree_centrality[n], betweenness[n]))
+        # Kingpin = highest out-degree (spreads money to most nodes). Tiebreak on in-degree.
+        kingpin = max(candidates, key=lambda n: (out_degree_centrality[n], in_degree_centrality[n]))
         
         return kingpin

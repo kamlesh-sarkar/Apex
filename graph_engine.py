@@ -46,7 +46,12 @@ class ApexGraphEngine:
         
         # NetworkX has a built-in algorithm to find directed cycles!
         # Because device edges only go one way (User -> Device), they won't trigger false loops.
-        cycles = list(nx.simple_cycles(self.graph))
+        # Safety cap: dense graphs can produce thousands of cycles, hanging forever
+        cycles = []
+        for c in nx.simple_cycles(self.graph):
+            cycles.append(c)
+            if len(cycles) >= 100:
+                break
         
         for cycle in cycles:
             # A cycle of 2 (A->B, B->A) might just be a split bill. A cycle of 3+ is highly suspicious.

@@ -1,95 +1,565 @@
 {
-  "fraud_node": "F1",
+  "node": "F1",
+  "risk_score": "Medium",
+  "risk_score_value": 30,
+  "is_fraud": false,
+  "fraud_probability": 0.0392,
+  "reasons": [
+    "Part of a dense, tightly-connected suspicious transaction cluster"
+  ],
   "kingpin": "K1",
-  "ancestors": [
-    "I4",
-    "I8",
-    "I6",
-    "I2",
-    "I3",
-    "I1",
-    "I7",
-    "I5",
-    "K1"
+  "trace_paths": [
+    [
+      "K1",
+      "I1",
+      "I4",
+      "F1"
+    ],
+    [
+      "K1",
+      "I1",
+      "I5",
+      "F1"
+    ],
+    [
+      "K1",
+      "I2",
+      "I6",
+      "F1"
+    ],
+    [
+      "K1",
+      "I3",
+      "I7",
+      "F1"
+    ],
+    [
+      "K1",
+      "I3",
+      "I8",
+      "F1"
+    ]
   ],
   "suspicious_edges": [
     {
-      "source": "K1",
-      "target": "I1",
-      "amount": 5000,
-      "timestamp": "2024-01-01 10:00:00+00:00"
-    },
-    {
-      "source": "K1",
-      "target": "I2",
-      "amount": 4000,
-      "timestamp": "2024-01-01 10:05:00+00:00"
-    },
-    {
-      "source": "K1",
-      "target": "I3",
-      "amount": 6000,
-      "timestamp": "2024-01-01 10:10:00+00:00"
-    },
-    {
-      "source": "I1",
-      "target": "I4",
+      "source": "I5",
+      "target": "F1",
       "amount": 2500,
-      "timestamp": "2024-01-01 11:00:00+00:00"
-    },
-    {
-      "source": "I1",
-      "target": "I5",
-      "amount": 2500,
-      "timestamp": "2024-01-01 11:05:00+00:00"
-    },
-    {
-      "source": "I2",
-      "target": "I6",
-      "amount": 4000,
-      "timestamp": "2024-01-01 11:10:00+00:00"
-    },
-    {
-      "source": "I3",
-      "target": "I7",
-      "amount": 3000,
-      "timestamp": "2024-01-01 11:15:00+00:00"
-    },
-    {
-      "source": "I3",
-      "target": "I8",
-      "amount": 3000,
-      "timestamp": "2024-01-01 11:20:00+00:00"
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 12:05:00+00:00"
+      ]
     },
     {
       "source": "I4",
       "target": "F1",
       "amount": 2500,
-      "timestamp": "2024-01-01 12:00:00+00:00"
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 12:00:00+00:00"
+      ]
     },
     {
-      "source": "I5",
-      "target": "F1",
+      "source": "I1",
+      "target": "I4",
       "amount": 2500,
-      "timestamp": "2024-01-01 12:05:00+00:00"
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 11:00:00+00:00"
+      ]
+    },
+    {
+      "source": "I1",
+      "target": "I5",
+      "amount": 2500,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 11:05:00+00:00"
+      ]
     },
     {
       "source": "I6",
       "target": "F1",
       "amount": 4000,
-      "timestamp": "2024-01-01 12:10:00+00:00"
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 12:10:00+00:00"
+      ]
     },
     {
       "source": "I7",
       "target": "F1",
       "amount": 3000,
-      "timestamp": "2024-01-01 12:15:00+00:00"
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 12:15:00+00:00"
+      ]
+    },
+    {
+      "source": "I2",
+      "target": "I6",
+      "amount": 4000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 11:10:00+00:00"
+      ]
+    },
+    {
+      "source": "I3",
+      "target": "I7",
+      "amount": 3000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 11:15:00+00:00"
+      ]
+    },
+    {
+      "source": "I3",
+      "target": "I8",
+      "amount": 3000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 11:20:00+00:00"
+      ]
     },
     {
       "source": "I8",
       "target": "F1",
       "amount": 3000,
-      "timestamp": "2024-01-01 12:20:00+00:00"
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 12:20:00+00:00"
+      ]
+    },
+    {
+      "source": "K1",
+      "target": "I1",
+      "amount": 5000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 10:00:00+00:00"
+      ]
+    },
+    {
+      "source": "K1",
+      "target": "I2",
+      "amount": 4000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 10:05:00+00:00"
+      ]
+    },
+    {
+      "source": "K1",
+      "target": "I3",
+      "amount": 6000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 10:10:00+00:00"
+      ]
     }
-  ]
+  ],
+  "all_node_scores": {
+    "I5": {
+      "score": 30,
+      "label": "Medium",
+      "is_fraud": false,
+      "fraud_probability": 0.037,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster"
+      ]
+    },
+    "F1": {
+      "score": 30,
+      "label": "Medium",
+      "is_fraud": false,
+      "fraud_probability": 0.0392,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster"
+      ]
+    },
+    "I8": {
+      "score": 30,
+      "label": "Medium",
+      "is_fraud": false,
+      "fraud_probability": 0.037,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster"
+      ]
+    },
+    "N3": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "fraud_probability": 0.0392,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "V4": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "fraud_probability": 0.0392,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "K1": {
+      "score": 100,
+      "label": "High",
+      "is_fraud": true,
+      "fraud_probability": 0.9259,
+      "ml_prediction": "fraud",
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster",
+        "Acts as a high-connectivity hub routing funds to many accounts",
+        "Unusually high total transaction volume compared to network peers",
+        "XGBoost ML model classifies this node as high-risk (>50% fraud probability)"
+      ]
+    },
+    "V2": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "fraud_probability": 0.0392,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "I2": {
+      "score": 40,
+      "label": "Medium",
+      "is_fraud": false,
+      "fraud_probability": 0.037,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster",
+        "Unusually high total transaction volume compared to network peers"
+      ]
+    },
+    "I6": {
+      "score": 40,
+      "label": "Medium",
+      "is_fraud": false,
+      "fraud_probability": 0.037,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster",
+        "Unusually high total transaction volume compared to network peers"
+      ]
+    },
+    "I3": {
+      "score": 40,
+      "label": "Medium",
+      "is_fraud": false,
+      "fraud_probability": 0.0392,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster",
+        "Unusually high total transaction volume compared to network peers"
+      ]
+    },
+    "I7": {
+      "score": 30,
+      "label": "Medium",
+      "is_fraud": false,
+      "fraud_probability": 0.037,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster"
+      ]
+    },
+    "I10": {
+      "score": 20,
+      "label": "Low",
+      "is_fraud": false,
+      "fraud_probability": 0.037,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Involved in circular fund flows (potential money laundering loop)"
+      ]
+    },
+    "V3": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "fraud_probability": 0.0392,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "I4": {
+      "score": 30,
+      "label": "Medium",
+      "is_fraud": false,
+      "fraud_probability": 0.037,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster"
+      ]
+    },
+    "I1": {
+      "score": 40,
+      "label": "Medium",
+      "is_fraud": false,
+      "fraud_probability": 0.0392,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster",
+        "Unusually high total transaction volume compared to network peers"
+      ]
+    },
+    "V1": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "fraud_probability": 0.0392,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "I11": {
+      "score": 20,
+      "label": "Low",
+      "is_fraud": false,
+      "fraud_probability": 0.037,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Involved in circular fund flows (potential money laundering loop)"
+      ]
+    },
+    "I9": {
+      "score": 20,
+      "label": "Low",
+      "is_fraud": false,
+      "fraud_probability": 0.037,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "Involved in circular fund flows (potential money laundering loop)"
+      ]
+    },
+    "N2": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "fraud_probability": 0.037,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "N1": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "fraud_probability": 0.037,
+      "ml_prediction": "legitimate",
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "B1": {
+      "score": 90,
+      "label": "High",
+      "is_fraud": true,
+      "fraud_probability": 0.9259,
+      "ml_prediction": "fraud",
+      "reasons": [
+        "Acts as a high-connectivity hub routing funds to many accounts",
+        "Unusually high total transaction volume compared to network peers",
+        "Unusually high number of outgoing transactions detected",
+        "XGBoost ML model classifies this node as high-risk (>50% fraud probability)"
+      ]
+    }
+  },
+  "ml_metrics": {
+    "auc_roc": 1.0,
+    "confusion_matrix": {
+      "true_negatives": 12,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "true_positives": 6
+    },
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "accuracy": 1.0,
+    "feature_importance": {
+      "total_sent": 0.9569,
+      "concentration": 0.0431,
+      "tx_out_count": 0.0,
+      "tx_in_count": 0.0,
+      "total_received": 0.0,
+      "mean_sent": 0.0,
+      "std_sent": 0.0,
+      "max_sent": 0.0,
+      "max_zscore": 0.0,
+      "unique_receivers": 0.0,
+      "unique_senders": 0.0,
+      "net_flow_ratio": 0.0,
+      "timing_cv": 0.0
+    }
+  },
+  "evaluation_report": {
+    "model_performance": {
+      "auc_roc": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "accuracy": 1.0,
+      "confusion_matrix": {
+        "true_negatives": 12,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "true_positives": 6
+      },
+      "feature_importance": {
+        "total_sent": 0.9569,
+        "concentration": 0.0431,
+        "tx_out_count": 0.0,
+        "tx_in_count": 0.0,
+        "total_received": 0.0,
+        "mean_sent": 0.0,
+        "std_sent": 0.0,
+        "max_sent": 0.0,
+        "max_zscore": 0.0,
+        "unique_receivers": 0.0,
+        "unique_senders": 0.0,
+        "net_flow_ratio": 0.0,
+        "timing_cv": 0.0
+      }
+    },
+    "scoring_analysis": {
+      "total_nodes_analyzed": 21,
+      "risk_distribution": {
+        "high": 2,
+        "medium": 9,
+        "low": 10
+      },
+      "ml_flagged_count": 2,
+      "rule_ml_agreement_rate": 1.0
+    },
+    "roc_curve_points": [
+      {
+        "threshold": 0.0,
+        "fpr": 1.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.05,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.1,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.15,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.2,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.25,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.3,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.35,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.4,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.45,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.5,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.55,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.6,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.65,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.7,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.75,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.8,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.85,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.9,
+        "fpr": 0.0,
+        "tpr": 1.0
+      },
+      {
+        "threshold": 0.95,
+        "fpr": 0.0,
+        "tpr": 0.0
+      },
+      {
+        "threshold": 1.0,
+        "fpr": 0.0,
+        "tpr": 0.0
+      }
+    ],
+    "threshold_analysis": {
+      "current_high_threshold": 60,
+      "current_medium_threshold": 25,
+      "recommended_ml_threshold": 0.5,
+      "note": "Thresholds calibrated using ROC analysis for optimal TPR/FPR tradeoff"
+    }
+  }
 }

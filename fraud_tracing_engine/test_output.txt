@@ -1,0 +1,349 @@
+=== Fraud Tracing Engine Test ===
+Importing orchestrator...
+  Import OK (1.69s)
+Creating orchestrator (mock=True)...
+  Orchestrator ready (0.00s)
+Running pipeline for F1...
+  Pipeline done (0.05s)
+
+--- RESULT ---
+{
+  "node": "F1",
+  "risk_score": "Medium",
+  "risk_score_value": 30,
+  "is_fraud": false,
+  "reasons": [
+    "Part of a dense, tightly-connected suspicious transaction cluster"
+  ],
+  "kingpin": "K1",
+  "trace_paths": [
+    [
+      "K1",
+      "I1",
+      "I4",
+      "F1"
+    ],
+    [
+      "K1",
+      "I1",
+      "I5",
+      "F1"
+    ],
+    [
+      "K1",
+      "I2",
+      "I6",
+      "F1"
+    ],
+    [
+      "K1",
+      "I3",
+      "I7",
+      "F1"
+    ],
+    [
+      "K1",
+      "I3",
+      "I8",
+      "F1"
+    ]
+  ],
+  "suspicious_edges": [
+    {
+      "source": "I4",
+      "target": "F1",
+      "amount": 2500,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 12:00:00+00:00"
+      ]
+    },
+    {
+      "source": "I2",
+      "target": "I6",
+      "amount": 4000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 11:10:00+00:00"
+      ]
+    },
+    {
+      "source": "I6",
+      "target": "F1",
+      "amount": 4000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 12:10:00+00:00"
+      ]
+    },
+    {
+      "source": "I3",
+      "target": "I7",
+      "amount": 3000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 11:15:00+00:00"
+      ]
+    },
+    {
+      "source": "I3",
+      "target": "I8",
+      "amount": 3000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 11:20:00+00:00"
+      ]
+    },
+    {
+      "source": "I8",
+      "target": "F1",
+      "amount": 3000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 12:20:00+00:00"
+      ]
+    },
+    {
+      "source": "I7",
+      "target": "F1",
+      "amount": 3000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 12:15:00+00:00"
+      ]
+    },
+    {
+      "source": "K1",
+      "target": "I1",
+      "amount": 5000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 10:00:00+00:00"
+      ]
+    },
+    {
+      "source": "K1",
+      "target": "I2",
+      "amount": 4000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 10:05:00+00:00"
+      ]
+    },
+    {
+      "source": "K1",
+      "target": "I3",
+      "amount": 6000,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 10:10:00+00:00"
+      ]
+    },
+    {
+      "source": "I5",
+      "target": "F1",
+      "amount": 2500,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 12:05:00+00:00"
+      ]
+    },
+    {
+      "source": "I1",
+      "target": "I4",
+      "amount": 2500,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 11:00:00+00:00"
+      ]
+    },
+    {
+      "source": "I1",
+      "target": "I5",
+      "amount": 2500,
+      "tx_count": 1,
+      "timestamps": [
+        "2024-01-01 11:05:00+00:00"
+      ]
+    }
+  ],
+  "all_node_scores": {
+    "I4": {
+      "score": 30,
+      "label": "Medium",
+      "is_fraud": false,
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster"
+      ]
+    },
+    "I2": {
+      "score": 40,
+      "label": "Medium",
+      "is_fraud": false,
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster",
+        "Unusually high total transaction volume compared to network peers"
+      ]
+    },
+    "I8": {
+      "score": 30,
+      "label": "Medium",
+      "is_fraud": false,
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster"
+      ]
+    },
+    "F1": {
+      "score": 30,
+      "label": "Medium",
+      "is_fraud": false,
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster"
+      ]
+    },
+    "V2": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "I9": {
+      "score": 20,
+      "label": "Low",
+      "is_fraud": false,
+      "reasons": [
+        "Involved in circular fund flows (potential money laundering loop)"
+      ]
+    },
+    "I3": {
+      "score": 40,
+      "label": "Medium",
+      "is_fraud": false,
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster",
+        "Unusually high total transaction volume compared to network peers"
+      ]
+    },
+    "B1": {
+      "score": 35,
+      "label": "Medium",
+      "is_fraud": false,
+      "reasons": [
+        "Acts as a high-connectivity hub routing funds to many accounts",
+        "Unusually high total transaction volume compared to network peers"
+      ]
+    },
+    "N2": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "K1": {
+      "score": 65,
+      "label": "High",
+      "is_fraud": true,
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster",
+        "Acts as a high-connectivity hub routing funds to many accounts",
+        "Unusually high total transaction volume compared to network peers"
+      ]
+    },
+    "N1": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "V3": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "I6": {
+      "score": 40,
+      "label": "Medium",
+      "is_fraud": false,
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster",
+        "Unusually high total transaction volume compared to network peers"
+      ]
+    },
+    "N3": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "I10": {
+      "score": 20,
+      "label": "Low",
+      "is_fraud": false,
+      "reasons": [
+        "Involved in circular fund flows (potential money laundering loop)"
+      ]
+    },
+    "V1": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "V4": {
+      "score": 0,
+      "label": "Low",
+      "is_fraud": false,
+      "reasons": [
+        "No significant anomalies detected \u2014 consistent with legitimate activity"
+      ]
+    },
+    "I7": {
+      "score": 30,
+      "label": "Medium",
+      "is_fraud": false,
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster"
+      ]
+    },
+    "I5": {
+      "score": 30,
+      "label": "Medium",
+      "is_fraud": false,
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster"
+      ]
+    },
+    "I1": {
+      "score": 40,
+      "label": "Medium",
+      "is_fraud": false,
+      "reasons": [
+        "Part of a dense, tightly-connected suspicious transaction cluster",
+        "Unusually high total transaction volume compared to network peers"
+      ]
+    },
+    "I11": {
+      "score": 20,
+      "label": "Low",
+      "is_fraud": false,
+      "reasons": [
+        "Involved in circular fund flows (potential money laundering loop)"
+      ]
+    }
+  }
+}
+
+Total elapsed: 1.74s
