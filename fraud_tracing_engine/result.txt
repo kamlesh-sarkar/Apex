@@ -1,0 +1,95 @@
+{
+  "fraud_node": "F1",
+  "kingpin": "K1",
+  "ancestors": [
+    "I4",
+    "I8",
+    "I6",
+    "I2",
+    "I3",
+    "I1",
+    "I7",
+    "I5",
+    "K1"
+  ],
+  "suspicious_edges": [
+    {
+      "source": "K1",
+      "target": "I1",
+      "amount": 5000,
+      "timestamp": "2024-01-01 10:00:00+00:00"
+    },
+    {
+      "source": "K1",
+      "target": "I2",
+      "amount": 4000,
+      "timestamp": "2024-01-01 10:05:00+00:00"
+    },
+    {
+      "source": "K1",
+      "target": "I3",
+      "amount": 6000,
+      "timestamp": "2024-01-01 10:10:00+00:00"
+    },
+    {
+      "source": "I1",
+      "target": "I4",
+      "amount": 2500,
+      "timestamp": "2024-01-01 11:00:00+00:00"
+    },
+    {
+      "source": "I1",
+      "target": "I5",
+      "amount": 2500,
+      "timestamp": "2024-01-01 11:05:00+00:00"
+    },
+    {
+      "source": "I2",
+      "target": "I6",
+      "amount": 4000,
+      "timestamp": "2024-01-01 11:10:00+00:00"
+    },
+    {
+      "source": "I3",
+      "target": "I7",
+      "amount": 3000,
+      "timestamp": "2024-01-01 11:15:00+00:00"
+    },
+    {
+      "source": "I3",
+      "target": "I8",
+      "amount": 3000,
+      "timestamp": "2024-01-01 11:20:00+00:00"
+    },
+    {
+      "source": "I4",
+      "target": "F1",
+      "amount": 2500,
+      "timestamp": "2024-01-01 12:00:00+00:00"
+    },
+    {
+      "source": "I5",
+      "target": "F1",
+      "amount": 2500,
+      "timestamp": "2024-01-01 12:05:00+00:00"
+    },
+    {
+      "source": "I6",
+      "target": "F1",
+      "amount": 4000,
+      "timestamp": "2024-01-01 12:10:00+00:00"
+    },
+    {
+      "source": "I7",
+      "target": "F1",
+      "amount": 3000,
+      "timestamp": "2024-01-01 12:15:00+00:00"
+    },
+    {
+      "source": "I8",
+      "target": "F1",
+      "amount": 3000,
+      "timestamp": "2024-01-01 12:20:00+00:00"
+    }
+  ]
+}

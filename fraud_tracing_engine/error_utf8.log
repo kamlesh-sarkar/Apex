@@ -1,0 +1,14 @@
+﻿python : Traceback (most recent call last):
+At line:1 char:1
++ python main.py > error.log 2>&1; type error.log
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\PC\OneDrive\Desktop\Apex\fraud_tracing_engine\main.py", line 1, in <module>
+    from fraud_tracing.orchestrator import FraudTracingOrchestrator
+  File "C:\Users\PC\OneDrive\Desktop\Apex\fraud_tracing_engine\fraud_tracing\orchestrator.py", line 2, in <module>
+    from .agents.ingestion import DataIngestionAgent
+  File "C:\Users\PC\OneDrive\Desktop\Apex\fraud_tracing_engine\fraud_tracing\agents\ingestion.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
